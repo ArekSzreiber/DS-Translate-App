@@ -17,21 +17,23 @@
   font-weight: 400;
 }
 
-  $background: #040711;
-  $grey-1: #394150;
-  $grey-2: #4D5562;
-  $light-1: #CDD5E0;
-  $light-2: #F9FAFB;
-  $primary: #3662E3;
-  $primary-2: #7CA9F3;
-  $grey-3: #212936cc;
-  $grey-4: #121826cc;
+  --background: #040711;
+  --grey-1: #394150;
+  --grey-2: #4D5562;
+  --light-1: #CDD5E0;
+  --light-2: #F9FAFB;
+  --primary: #3662E3;
+  --primary-2: #7CA9F3;
+  --grey-3: #212936cc;
+  --grey-4: #121826cc;
 
 
 }
 
 body {
   font-family: "DM Sans", sans-serif;
-
-
+  margin: 0;
+  overflow-x: hidden;
+  min-height: 100vh;
+  background-color: var(--background);
 }
