@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+
+  @mixin text-xl {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+  @mixin text-md {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+  @mixin text-xs {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+  $background: #040711;
+  $grey-1: #394150;
+  $grey-2: #4D5562;
+  $light-1: #CDD5E0;
+  $light-2: #F9FAFB;
+  $primary: #3662E3;
+  $primary-2: #7CA9F3;
+  $grey-3: #212936cc;
+  $grey-4: #121826cc;
+
+
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+
+
+}
