@@ -11,24 +11,24 @@ import { Component } from '@angular/core';
       border-radius: 10px;
       padding: 15px 25px;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      line-height: 24px;
 
     }
     
     .text {
-      display: block;
       @include text-xl;
       color: var(--light-2);
-      word-spacing: 12px;
-
-      &::first-letter {
-        text-decoration: underline;
-      }
+      margin-left: 6px;
+      align-self: center;
     }
 
   `],
   template: `
     <button type="button" class="button">
-      <span class="text">A Translate</span>
+      <img ngSrc="../../../../assets/Sort_alfa.svg" alt="A" width="24" height="24">
+      <span class="text">Translate</span>
     </button>
   `,
 })
