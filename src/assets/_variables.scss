@@ -1,0 +1,14 @@
+@mixin text-xl {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+@mixin text-md {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+@mixin text-xs {
+  font-size: 12px;
+  font-weight: 400;
+}

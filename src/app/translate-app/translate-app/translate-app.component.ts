@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   `],
   template: `
     <app-background-image></app-background-image>
-    
+    <app-button></app-button>
     <app-card></app-card>
     <app-card></app-card>
   `,
