@@ -8,19 +8,20 @@ import { Component } from '@angular/core';
     </div>
   `,
   styles: [`
-    .background-image {
+    .container {
       position: absolute;
+      display: flex;
+      justify-content: center;
+      width: 100vw;
+    }
+
+    .background-image {
       z-index: -1;
       max-width: 100vw;
       min-width: 1280px;
       width: auto;
       height: auto;
-    }
-
-    .container {
-      display: flex;
-      justify-content: center;
-      width: 100vw;
+      flex-grow: 1;
     }
 
   `]

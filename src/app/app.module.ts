@@ -11,6 +11,7 @@ import {IconButtonComponent} from './translate-app/containers/icon-button/icon-b
 import {SelectButtonComponent} from './translate-app/containers/select-button/select-button.component';
 import {TextareaComponent} from './translate-app/containers/textarea/textarea.component';
 import {TranslateAppComponent} from './translate-app/translate-app/translate-app.component';
+import { LogoComponent } from './translate-app/containers/logo/logo.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {TranslateAppComponent} from './translate-app/translate-app/translate-app
     SelectButtonComponent,
     TextareaComponent,
     TranslateAppComponent,
+    LogoComponent,
   ],
   imports: [
     BrowserModule,

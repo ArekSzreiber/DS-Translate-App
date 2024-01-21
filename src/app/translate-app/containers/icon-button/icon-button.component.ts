@@ -2,12 +2,20 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-icon-button',
+  styles: [`
+    .icon-button {
+    border: 2px solid var(--grey-2);
+      border-radius: 12px;
+      background: transparent;
+      cursor: pointer;
+    }
+  `],
   template: `
-    <p>
-      icon-button works!
-    </p>
+<button class="icon-button">
+  <ng-content></ng-content>
+</button>
   `,
-  styles: ``
+
 })
 export class IconButtonComponent {
 

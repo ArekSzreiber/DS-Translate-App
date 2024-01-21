@@ -9,18 +9,17 @@ import { Component } from '@angular/core';
       background-color: var(--primary);
       border: 2px solid var(--primary-2);
       border-radius: 10px;
-      padding: 15px 25px;
+      padding: 12px 24px;
       cursor: pointer;
       display: flex;
       align-items: center;
       line-height: 24px;
-
     }
     
     .text {
       @include text-xl;
       color: var(--light-2);
-      margin-left: 6px;
+      margin-left: 5px;
       align-self: center;
     }
 
