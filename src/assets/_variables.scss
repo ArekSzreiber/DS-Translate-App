@@ -12,3 +12,7 @@
   font-size: 12px;
   font-weight: 500;
 }
+
+@mixin border-radius {
+  border-radius: 12px;
+}

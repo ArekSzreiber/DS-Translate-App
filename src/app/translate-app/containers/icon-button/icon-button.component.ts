@@ -3,9 +3,11 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-icon-button',
   styles: [`
+    @import "../../../../assets/variables";
+
     .icon-button {
-    border: 2px solid var(--grey-2);
-      border-radius: 12px;
+      @include border-radius();
+      border: 2px solid var(--grey);
       background: transparent;
       cursor: pointer;
     }

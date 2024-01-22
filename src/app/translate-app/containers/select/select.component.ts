@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-select-button',
+  selector: 'app-select',
   template: `
     <p>
       select-button works!
@@ -9,6 +9,6 @@ import { Component } from '@angular/core';
   `,
   styles: ``
 })
-export class SelectButtonComponent {
+export class SelectComponent {
 
 }

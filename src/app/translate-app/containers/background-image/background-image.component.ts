@@ -9,19 +9,19 @@ import { Component } from '@angular/core';
   `,
   styles: [`
     .container {
-      position: absolute;
       display: flex;
       justify-content: center;
+      position: absolute;
       width: 100vw;
+      z-index: -1;
     }
 
     .background-image {
-      z-index: -1;
+      flex-grow: 1;
+      height: auto;
       max-width: 100vw;
       min-width: 1280px;
       width: auto;
-      height: auto;
-      flex-grow: 1;
     }
 
   `]
