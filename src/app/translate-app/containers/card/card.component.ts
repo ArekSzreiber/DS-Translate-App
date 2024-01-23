@@ -12,6 +12,7 @@ import {Component, Input, ViewEncapsulation} from '@angular/core';
       border: 1px solid var(--grey);
       border-radius: 20px;
       backdrop-filter: blur(10px);
+      min-width: 380px;
     }
 
     .header {

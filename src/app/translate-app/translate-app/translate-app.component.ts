@@ -9,7 +9,7 @@ import {Component, ViewEncapsulation} from '@angular/core';
       display: flex;
       flex-direction: column;
       row-gap: 12px;
-      margin: 0 20px;
+      margin: 0 calc(-53px + 12.5vw);
     }
 
     .buttons-container {
