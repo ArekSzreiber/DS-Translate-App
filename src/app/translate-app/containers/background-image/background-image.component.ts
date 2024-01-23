@@ -15,6 +15,7 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
       position: absolute;
       width: 100vw;
       z-index: -1;
+      overflow-x: hidden;
     }
 
     .background-image {
