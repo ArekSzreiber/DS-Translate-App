@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 
 @Component({
   selector: 'app-logo',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styles: [`
     .container {
       display: flex;
@@ -9,7 +10,8 @@ import { Component } from '@angular/core';
     }
 
     .logo {
-      margin: 25px 0;
+      margin-top: 73px;
+      margin-bottom: 50px;
     }
   `],
   template: `

@@ -1,23 +1,23 @@
-import { Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 
 @Component({
   selector: 'app-button',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styles: [`
     @import "../../../../assets/variables";
 
     .button {
       background-color: var(--primary);
-      border: 2px solid var(--primary-2);
-      @include border-radius();
-      padding: 12px 24px;
+      border: 1px solid var(--primary-2);
+      border-radius: 12px;
+      padding: 10px 20px;
       cursor: pointer;
       display: flex;
       align-items: center;
-      line-height: 24px;
     }
 
     .text {
-      @include text-xl;
+      @include text-xl();
       color: var(--light);
       margin-left: 5px;
       align-self: center;

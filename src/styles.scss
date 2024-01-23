@@ -2,21 +2,6 @@
 
 :root {
 
-  @mixin text-xl {
-  font-size: 16px;
-  font-weight: 700;
-}
-
-  @mixin text-md {
-  font-size: 14px;
-  font-weight: 700;
-}
-
-  @mixin text-xs {
-  font-size: 12px;
-  font-weight: 400;
-}
-
   --background: #040711;
   --grey-darker: #394150;
   --grey: #4D5562;
@@ -31,7 +16,7 @@
 }
 
 body {
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans", sans-serif !important;
   margin: 0;
   overflow-x: hidden;
   background-color: var(--background);

@@ -1,26 +1,23 @@
-import {Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-selectable-button',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styles: [`
     @import "../../../../assets/variables";
 
     .button {
       background: transparent;
-      @include border-radius();
+      border-radius: 14px;
       border: 1px solid transparent;
-      color: var(--grey-darker);
-      @include text-xl();
-      padding: 10px 13px;
+      color: var(--grey);
+      @include text-md();
+      padding: 8px 10px;
       cursor: pointer;
       
       &:hover {
         color: var(--light);
       }
-    }
-    
-    .text {
-      @include text-xl();
     }
     
     .selected {

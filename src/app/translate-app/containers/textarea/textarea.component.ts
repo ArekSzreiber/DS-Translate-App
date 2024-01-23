@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-textarea',
@@ -7,43 +7,51 @@ import { Component } from '@angular/core';
 
 
     .textarea {
+      @include text-md();
       background: none;
-      width: 100%;
-      //min-height: 190px;
-      min-height: 150px;
-      color: var(--light);
-      @include text-xl();
       border: none;
+      color: var(--light);
+      font-family: "DM Sans", sans-serif !important;
+      min-height: 140px;
       outline: none;
+      padding-top: 25px;
       resize: none;
+      width: 100%;
 
       &::placeholder {
         color: var(--light);
         opacity: 1;
       }
     }
-
-    #character-counter {
-      @include text-xs();
-      color: var(--light-darker);
-      display: flex;
-      justify-content: flex-end;
-    }
   `],
   template: `
     <textarea
       class="textarea"
-      placeholder="Hello, how are you?"
-      maxlength="500"
+      [placeholder]="placeholder"
+      [maxLength]="maxLength ? maxLength : -1"
+      [ngModel]="text"
+      (ngModelChange)="textChanged($event)"
+      [readonly]="readonly"
       rows="5"
       cols="30"
     ></textarea>
-    <div id="character-counter">
-      <span id="current">0</span>
-      <span id="maximum">/500</span>
-    </div>
+    <app-character-counter
+      *ngIf="maxLength"
+      [current]="current"
+      [maxLength]="maxLength"
+    ></app-character-counter>
   `,
 })
 export class TextareaComponent {
+  @Input() placeholder?: string;
+  @Input() maxLength?: number;
+  @Input() readonly: boolean = false;
+
+  current: number = 0;
+  text: string = '';
+
+  textChanged($event: string) {
+    this.current = $event.length;
+  }
 
 }

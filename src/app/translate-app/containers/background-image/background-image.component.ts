@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 
 @Component({
   selector: 'app-background-image',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="container">
       <img class="background-image" ngSrc="../../../../assets/hero_img.jpg" alt="" height="460" width="1280">

@@ -1,15 +1,17 @@
-import { Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 
 @Component({
   selector: 'app-icon-button',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styles: [`
     @import "../../../../assets/variables";
 
     .icon-button {
-      @include border-radius();
+      border-radius: 10px;
       border: 2px solid var(--grey);
       background: transparent;
       cursor: pointer;
+      padding: 2px 3px;
     }
   `],
   template: `
