@@ -2,7 +2,7 @@ import {Observable, of, tap} from 'rxjs';
 import {Store} from '@ngrx/store';
 import {LanguageSelectionComponent} from '../language-selection.component';
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {chooseTarget} from '../../../store/translate.actions';
+import {chooseTarget, swapLanguages} from '../../../store/translate.actions';
 import {selectTarget} from '../../../store/translate.selectors';
 import {Language} from '../../translate-app/model';
 
@@ -19,7 +19,6 @@ import {Language} from '../../translate-app/model';
   `],
   template: `
     <div class="buttons-container">
-      {{target$ | async}}
 
       @for (language of buttonsLanguages; track language.code) {
         <app-selectable-button
@@ -68,5 +67,6 @@ export class TargetSelectionComponent extends LanguageSelectionComponent {
 
   swapLanguages() {
     console.log('swapLanguages');
+    this.store.dispatch(swapLanguages());
   }
 }

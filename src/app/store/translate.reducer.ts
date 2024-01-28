@@ -1,5 +1,5 @@
 import {createReducer, on} from '@ngrx/store';
-import {chooseSource, chooseTarget} from './translate.actions';
+import {chooseSource, chooseTarget, swapLanguages} from './translate.actions';
 
 
 const initialState = {
@@ -38,6 +38,15 @@ export const translateReducer = createReducer(
       ...state,
       source: state.target,
       target: action.languageCode,
+    };
+    },
+  ),
+
+  on(swapLanguages, (state, action) => {
+    return {
+      ...state,
+      source: state.target,
+      target: state.source,
     };
     },
   ),

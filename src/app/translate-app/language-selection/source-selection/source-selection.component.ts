@@ -18,7 +18,6 @@ import {selectSource} from '../../../store/translate.selectors';
   `],
   template: `
     <div class="buttons-container">
-      {{ source$ | async }}
 
       <app-selectable-button
         [language]="autodetect"

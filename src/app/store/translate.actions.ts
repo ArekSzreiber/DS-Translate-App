@@ -9,3 +9,7 @@ export const chooseTarget = createAction(
   '[Translate] Choose Target',
   props<{languageCode: string}>(),
 );
+
+export const swapLanguages = createAction(
+  '[Translate] Swap Languages',
+);
