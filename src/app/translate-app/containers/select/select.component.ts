@@ -1,39 +1,95 @@
-import {Component, ElementRef, QueryList, Renderer2, ViewChildren} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
+import {included, Language} from '../../translate-app/model';
 
 @Component({
   selector: 'app-select',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styles: [`
     @import '../../../../assets/variables';
-    
+
     .select {
       @include text-md();
       appearance: none;
-      background: transparent url('/assets/Expand_down.svg') no-repeat;
+      background-color: transparent;
+      background-image: url('/assets/Expand_down.svg');
       background-position-x: 100%;
       background-position-y: 50%;
+      background-repeat: no-repeat;
       border-radius: 14px;
       border: 1px solid transparent;
       color: var(--grey);
       cursor: pointer;
-      padding: 8px 20px 8px 10px;
+      padding: 8px 15px 8px 10px;
 
       &:hover {
+        background-image: url('/assets/Expand_down-hover.svg');
         color: var(--light);
       }
     }
+
+    .selected {
+      background-color: var(--grey);
+      background-image: url('/assets/Expand_down.svg');
+      color: var(--light);
+    }
+
   `],
   template: `
-    <select 
-      class="select" 
-      name="" 
-      id=""
+    <select
+      class="select"
+      [class.selected]="selected"
+      [(ngModel)]="model"
     >
-      <option value="spanish">Spanish</option>
-      <option value="german">German</option>
-      <option value="pl">Polish</option>
+      @for (language of options; track language.code) {
+        <option
+          (click)="optionClicked(language.code)"
+          [ngValue]="language.code"
+        >{{ language.name }}
+        </option>
+      }
     </select>
   `
 })
 export class SelectComponent {
+  @Output() languageSelected = new EventEmitter<string>();
+  selected: boolean = false;
+  model: string = '';
+
+  private _selectedLanguage: string = '';
+
+  get selectedLanguage(): string {
+    return this._selectedLanguage;
+  }
+
+  @Input() set selectedLanguage(value: string | null) {
+    this._selectedLanguage = value ?? '';
+    this.selected = included(this.options, this.selectedLanguage);
+    if (this.selected) {
+      this.model = this.selectedLanguage;
+    }
+  }
+
+  private _options: Language[] = [];
+
+  get options(): Language[] {
+    return this._options;
+  }
+
+  @Input() set options(value: Language[]) {
+    this._options = value;
+    this.selected = included(this.options, this.selectedLanguage);
+    if (this.selected) {
+      this.model = this.selectedLanguage;
+      return;
+    }
+    if (!this.model) {
+      this.model = this.options[0].code;
+    }
+
+  }
+
+  optionClicked(code: string) {
+    this.languageSelected.emit(code);
+  }
 
 }

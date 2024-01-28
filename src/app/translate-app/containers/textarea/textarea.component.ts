@@ -28,7 +28,7 @@ import {Component, Input} from '@angular/core';
     <textarea
       class="textarea"
       [placeholder]="placeholder"
-      [maxLength]="maxLength ? maxLength : -1"
+      [maxLength]="maxLength ? maxLength : undefined"
       [ngModel]="text"
       (ngModelChange)="textChanged($event)"
       [readonly]="readonly"

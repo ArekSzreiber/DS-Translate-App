@@ -5,7 +5,15 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="container">
-      <img class="background-image" ngSrc="../../../../assets/hero_img.jpg" alt="" height="460" width="1280">
+      <img
+        class="background-image"
+        ngSrc="../../../../assets/hero_img.jpg"
+        alt=""
+        height="460"
+        width="1280"
+        priority
+      >
+
     </div>
   `,
   styles: [`

@@ -1,4 +1,5 @@
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
+import {Language} from "../../translate-app/model";
 
 @Component({
   selector: 'app-selectable-button',
@@ -14,25 +15,31 @@ import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
       @include text-md();
       padding: 8px 10px;
       cursor: pointer;
-      
+
       &:hover {
         color: var(--light);
       }
     }
-    
+
     .selected {
       color: var(--light);
       background: var(--grey);
     }
   `],
   template: `
-    <button class="button" [class.selected]="selected">
+    <button
+      class="button"
+      [class.selected]="selected"
+      (click)="languageSelected.emit(language.code)"
+    >
       <span class="text">
-        <ng-content></ng-content>
+        {{ language.name }}
       </span>
     </button>
   `,
 })
 export class SelectableButtonComponent {
   @Input() selected: boolean = false;
+  @Input() language!: Language;
+  @Output() languageSelected = new EventEmitter<string>();
 }

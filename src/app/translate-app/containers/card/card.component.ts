@@ -1,8 +1,9 @@
-import {Component, Input, ViewEncapsulation} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-card',
   encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styles: [`
 
     @import "../../../../assets/variables";
@@ -18,9 +19,7 @@ import {Component, Input, ViewEncapsulation} from '@angular/core';
     .header {
       border-bottom: 1px solid var(--grey-darker);
       padding-bottom: 13px;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
+
     }
 
     .footer {
