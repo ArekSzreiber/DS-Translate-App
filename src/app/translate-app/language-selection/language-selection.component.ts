@@ -1,5 +1,6 @@
 import {Store} from '@ngrx/store';
 import {Language} from '../translate-app/model';
+import {TranslateState} from '../../store/translate.reducer';
 
 export abstract class LanguageSelectionComponent {
 
@@ -7,7 +8,7 @@ export abstract class LanguageSelectionComponent {
   protected selectLanguages: Language[] = [];
 
   protected constructor(
-    protected store: Store<{ translate: { source: string, target: string } }>,
+    protected store: Store<{ translate: TranslateState }>,
   ) {
     const languages: Language[] = [
       {

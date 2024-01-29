@@ -5,6 +5,7 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {chooseTarget, swapLanguages} from '../../../store/translate.actions';
 import {selectTarget} from '../../../store/translate.selectors';
 import {Language} from '../../translate-app/model';
+import {TranslateState} from '../../../store/translate.reducer';
 
 
 @Component({
@@ -48,7 +49,7 @@ export class TargetSelectionComponent extends LanguageSelectionComponent {
   target$: Observable<string>;
 
   constructor(
-    store: Store<{ translate: { source: string, target: string } }>,
+    store: Store<{ translate: TranslateState }>,
   ) {
     super(store);
 

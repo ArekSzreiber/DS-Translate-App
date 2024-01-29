@@ -5,6 +5,7 @@ import {chooseSource} from '../../../store/translate.actions';
 import {LanguageSelectionComponent} from '../language-selection.component';
 import {Language} from '../../translate-app/model';
 import {selectSource} from '../../../store/translate.selectors';
+import {TranslateState} from '../../../store/translate.reducer';
 
 @Component({
   selector: 'app-source-selection',
@@ -53,7 +54,7 @@ export class SourceSelectionComponent extends LanguageSelectionComponent {
   };
 
   constructor(
-    store: Store<{ translate: { source: string, target: string } }>,
+    store: Store<{ translate: TranslateState }>,
   ) {
     super(store);
 

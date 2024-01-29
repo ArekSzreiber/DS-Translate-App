@@ -1,4 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {TranslateState} from '../../store/translate.reducer';
+import {Store} from '@ngrx/store';
 
 @Component({
   selector: 'app-translate-app',
@@ -39,7 +41,6 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
         </header>
         <app-textarea
           textarea
-          #inputTextarea
           [placeholder]="'Hello, how are you?'"
           [maxLength]="500"
         ></app-textarea>
@@ -84,5 +85,8 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 export class TranslateAppComponent  {
 //   autodetect => english
 //     https://mymemory.translated.net/search.php?q=cześć&lang=en&sl=Autodetect&tl=en-GB
-
+constructor(
+  private store: Store<{translate: TranslateState}>,
+) {
+}
 }

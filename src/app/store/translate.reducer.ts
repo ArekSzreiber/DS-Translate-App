@@ -2,9 +2,18 @@ import {createReducer, on} from '@ngrx/store';
 import {chooseSource, chooseTarget, swapLanguages} from './translate.actions';
 
 
-const initialState = {
+export interface TranslateState {
+  source: string;
+  target: string;
+  translatingText: string;
+  translatedText: string;
+}
+
+const initialState: TranslateState = {
   source: 'en',
   target: 'fr',
+  translatingText: '',
+  translatedText: '',
 };
 
 
