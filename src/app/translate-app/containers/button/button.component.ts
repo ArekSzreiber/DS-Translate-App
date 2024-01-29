@@ -1,10 +1,10 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: [`
-    @import "../../../../assets/variables";
+    @import '../../../../assets/variables';
 
     .button {
       background-color: var(--primary);
@@ -14,6 +14,18 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
       cursor: pointer;
       display: flex;
       align-items: center;
+      box-shadow: 0 0 0 var(--background);
+      transition: transform 0.1s ease-in,
+      box-shadow 0.1s ease-out;
+    }
+
+    .button:active {
+      transform: translateY(3px);
+    }
+
+    .active {
+      transition: box-shadow 0.3s ease;
+      box-shadow: 0 0 4px 3px var(--light-darker);
     }
 
     .text {
@@ -25,12 +37,24 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
 
   `],
   template: `
-    <button type="button" class="button">
+    <button
+      type="button"
+      class="button"
+      [class.active]="active"
+      (click)="toggleClicked()"
+    >
       <img ngSrc="../../../../assets/Sort_alfa.svg" alt="A" width="24" height="24">
       <span class="text">Translate</span>
     </button>
   `,
 })
 export class ButtonComponent {
+  @Output() isActive = new EventEmitter<boolean>();
 
+  active: boolean = false;
+
+  toggleClicked() {
+    this.active = !this.active;
+    this.isActive.emit(this.active);
+  }
 }
