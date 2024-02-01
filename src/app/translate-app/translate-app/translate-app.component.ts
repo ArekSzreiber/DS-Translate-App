@@ -1,6 +1,9 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, ViewEncapsulation} from '@angular/core';
 import {TranslateState} from '../../store/translate.reducer';
 import {Store} from '@ngrx/store';
+import {setTextToTranslate, toggleTranslating} from '../../store/translate.actions';
+import {Observable} from 'rxjs';
+import {selectTranslatedText} from '../../store/translate.selectors';
 
 @Component({
   selector: 'app-translate-app',
@@ -30,18 +33,20 @@ import {Store} from '@ngrx/store';
   `],
   template: `
     <app-background-image></app-background-image>
-    
+
     <app-logo></app-logo>
 
     <div class="card-container">
 
       <app-card>
         <header class="header">
-            <app-source-selection></app-source-selection>
+          <app-source-selection></app-source-selection>
         </header>
+
         <app-textarea
           textarea
           [placeholder]="'Hello, how are you?'"
+          (textChanged)="sourceTextChanged($event)"
           [maxLength]="500"
         ></app-textarea>
         <footer class="footer">
@@ -53,11 +58,13 @@ import {Store} from '@ngrx/store';
               <img ngSrc="../../../../assets/Copy.svg" width="24" height="24" alt="">
             </app-icon-button>
           </div>
-          <app-button></app-button>
+          <app-button
+            (isActive)="activeChanged($event)"
+          ></app-button>
         </footer>
       </app-card>
-      
-      
+
+
       <app-card>
         <header class="header">
           <app-target-selection></app-target-selection>
@@ -66,6 +73,7 @@ import {Store} from '@ngrx/store';
           textarea
           placeholder="Bonjour, comment allez-vous?"
           [readonly]="true"
+          [text]="translatedText$ | async"
         ></app-textarea>
         <footer class="footer">
           <div class="footer-buttons">
@@ -82,11 +90,23 @@ import {Store} from '@ngrx/store';
   `,
 
 })
-export class TranslateAppComponent  {
+export class TranslateAppComponent {
 //   autodetect => english
 //     https://mymemory.translated.net/search.php?q=cześć&lang=en&sl=Autodetect&tl=en-GB
-constructor(
-  private store: Store<{translate: TranslateState}>,
-) {
-}
+  translate: boolean = false;
+  translatedText$: Observable<string>;
+
+  constructor(
+    private store: Store<{ translate: TranslateState }>,
+  ) {
+    this.translatedText$ = store.select(selectTranslatedText);
+  }
+
+  activeChanged($event: boolean) {
+    this.store.dispatch(toggleTranslating({translating: $event}));
+  }
+
+  sourceTextChanged($event: string) {
+    this.store.dispatch(setTextToTranslate({text: $event}));
+  }
 }

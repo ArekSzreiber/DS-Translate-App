@@ -1,19 +1,28 @@
 import {createReducer, on} from '@ngrx/store';
-import {chooseSource, chooseTarget, swapLanguages} from './translate.actions';
+import {
+  chooseSource,
+  chooseTarget,
+  setTextToTranslate,
+  setTranslatedText,
+  swapLanguages,
+  toggleTranslating
+} from './translate.actions';
 
 
 export interface TranslateState {
   source: string;
   target: string;
-  translatingText: string;
+  textToTranslate: string;
   translatedText: string;
+  translatingActive: boolean;
 }
 
 const initialState: TranslateState = {
   source: 'en',
   target: 'fr',
-  translatingText: '',
+  textToTranslate: '',
   translatedText: '',
+  translatingActive: false,
 };
 
 
@@ -56,6 +65,27 @@ export const translateReducer = createReducer(
       ...state,
       source: state.target,
       target: state.source,
+    };
+    },
+  ),
+  on(toggleTranslating, (state, action) => {
+    return {
+      ...state,
+      translatingActive: action.translating,
+    };
+    },
+  ),
+  on(setTextToTranslate, (state, action) => {
+    return {
+      ...state,
+      textToTranslate: action.text,
+    };
+    },
+  ),
+  on(setTranslatedText, (state, action) => {
+    return {
+      ...state,
+      translatedText: action.text,
     };
     },
   ),

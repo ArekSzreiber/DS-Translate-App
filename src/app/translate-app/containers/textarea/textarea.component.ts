@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-textarea',
@@ -30,7 +30,7 @@ import {Component, Input} from '@angular/core';
       [placeholder]="placeholder"
       [maxLength]="maxLength ? maxLength : undefined"
       [ngModel]="text"
-      (ngModelChange)="textChanged($event)"
+      (ngModelChange)="onTextChanged($event)"
       [readonly]="readonly"
       rows="5"
       cols="30"
@@ -46,12 +46,14 @@ export class TextareaComponent {
   @Input() placeholder?: string;
   @Input() maxLength?: number;
   @Input() readonly: boolean = false;
+  @Input() text: string | null = '';
+  @Output() textChanged = new EventEmitter<string>();
 
   current: number = 0;
-  text: string = '';
 
-  textChanged($event: string) {
+  onTextChanged($event: string) {
     this.current = $event.length;
+    this.textChanged.emit($event);
   }
 
 }

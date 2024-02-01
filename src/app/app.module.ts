@@ -21,6 +21,9 @@ import {TargetSelectionComponent} from './translate-app/language-selection/targe
 import {TextareaComponent} from './translate-app/containers/textarea/textarea.component';
 import {TranslateAppComponent} from './translate-app/translate-app/translate-app.component';
 import {translateReducer} from './store/translate.reducer';
+import {EffectsModule} from '@ngrx/effects';
+import {TranslateEffects} from './store/translate.effects';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,11 @@ import {translateReducer} from './store/translate.reducer';
   ],
   imports: [
     BrowserModule,
+    EffectsModule.forRoot([
+      TranslateEffects,
+    ]),
     FormsModule,
+    HttpClientModule,
     NgOptimizedImage,
     StoreModule.forRoot({
       translate: translateReducer,

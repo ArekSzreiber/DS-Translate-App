@@ -11,6 +11,16 @@ export const selectSource = createSelector(
   (state: TranslateState) => state.source,
 );
 
+export const selectTextToTranslate = createSelector(
+  selectTranslate,
+  (state: TranslateState) => state.textToTranslate,
+);
+
+export const selectTranslatedText = createSelector(
+  selectTranslate,
+  (state: TranslateState) => state.translatedText,
+);
+
 
 
 export const selectTarget  = createSelector(
