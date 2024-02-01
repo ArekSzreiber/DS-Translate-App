@@ -5,7 +5,13 @@ import {Store} from '@ngrx/store';
 import {debounceTime, Observable, tap, withLatestFrom} from 'rxjs';
 import {TranslateState} from './translate.reducer';
 import {selectTranslate} from './translate.selectors';
-import {setTextToTranslate, setTranslatedText, toggleTranslating} from './translate.actions';
+import {
+  chooseSource,
+  chooseTarget,
+  setTextToTranslate,
+  setTranslatedText,
+  toggleTranslating
+} from './translate.actions';
 
 @Injectable()
 export class TranslateEffects {
@@ -13,11 +19,17 @@ export class TranslateEffects {
     ofType(
       setTextToTranslate,
       toggleTranslating,
+      chooseSource,
+      chooseTarget,
     ),
     debounceTime(1000),
     withLatestFrom(this.store.select(selectTranslate)),
     tap(([action, state]) => {
       if (!state.translatingActive) {
+        return;
+      }
+      if (!state.textToTranslate) {
+        this.store.dispatch(setTranslatedText({text: ''}));
         return;
       }
       this.translate(state.source, state.target, state.textToTranslate)
