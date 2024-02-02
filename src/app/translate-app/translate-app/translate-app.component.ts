@@ -2,9 +2,10 @@ import {Component, ViewEncapsulation} from '@angular/core';
 import {TranslateState} from '../../store/translate.reducer';
 import {Store} from '@ngrx/store';
 import {setTextToTranslate, toggleTranslating} from '../../store/translate.actions';
-import {Observable} from 'rxjs';
-import {selectTranslatedText} from '../../store/translate.selectors';
+import {Observable, take} from 'rxjs';
+import {selectSource, selectTarget, selectTextToTranslate, selectTranslatedText} from '../../store/translate.selectors';
 import {TextareaComponent} from '../containers/textarea/textarea.component';
+import {TextToSpeechService} from '../text-to-speech.service';
 
 @Component({
   selector: 'app-translate-app',
@@ -30,7 +31,7 @@ import {TextareaComponent} from '../containers/textarea/textarea.component';
     app-card:nth-of-type(2) > .card {
       background: var(--grey-darker-opacity);
     }
-    
+
     .hidden {
       display: none;
     }
@@ -58,10 +59,11 @@ import {TextareaComponent} from '../containers/textarea/textarea.component';
           [placeholder]="'Hello, how are you?'"
           (textChanged)="sourceTextChanged($event)"
           [maxLength]="500"
+          [text]="textToTranslate$ | async"
         ></app-textarea>
         <footer class="footer">
           <div class="footer-buttons">
-            <app-icon-button>
+            <app-icon-button (click)="speak(translating, source$)">
               <img ngSrc="../../../../assets/sound_max_fill.svg" width="24" height="24" alt="">
             </app-icon-button>
             <app-icon-button class="copy-icon" (click)="copyToClipboard(translating)">
@@ -89,7 +91,7 @@ import {TextareaComponent} from '../containers/textarea/textarea.component';
         ></app-textarea>
         <footer class="footer">
           <div class="footer-buttons">
-            <app-icon-button>
+            <app-icon-button (click)="speak(translated, target$)">
               <img ngSrc="../../../../assets/sound_max_fill.svg" width="24" height="24" alt="">
             </app-icon-button>
             <app-icon-button class="copy-icon" (click)="copyToClipboard(translated)">
@@ -107,13 +109,20 @@ export class TranslateAppComponent {
 //   autodetect => english
 //     https://mymemory.translated.net/search.php?q=cześć&lang=en&sl=Autodetect&tl=en-GB
   translate: boolean = false;
+  textToTranslate$: Observable<string>;
   translatedText$: Observable<string>;
+  source$: Observable<string>;
+  target$: Observable<string>;
   showTooltip: boolean = false;
 
   constructor(
     private store: Store<{ translate: TranslateState }>,
+    private textToSpeechService: TextToSpeechService,
   ) {
+    this.textToTranslate$ = store.select(selectTextToTranslate);
     this.translatedText$ = store.select(selectTranslatedText);
+    this.source$ = store.select(selectSource);
+    this.target$ = store.select(selectTarget);
   }
 
   activeChanged($event: boolean) {
@@ -131,6 +140,16 @@ export class TranslateAppComponent {
         this.displayTooltip();
       }
     );
+  }
+
+  speak(textarea: TextareaComponent, language: Observable<string>) {
+    const text = textarea.text;
+    if (!text) {
+      return;
+    }
+    language.pipe(take(1)).subscribe(lang => {
+      this.textToSpeechService.speak(text, lang);
+    });
   }
 
   private displayTooltip() {

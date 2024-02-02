@@ -65,6 +65,7 @@ export const translateReducer = createReducer(
       ...state,
       source: state.target,
       target: state.source,
+      textToTranslate: state.translatedText,
     };
     },
   ),

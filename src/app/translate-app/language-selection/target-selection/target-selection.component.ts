@@ -67,7 +67,6 @@ export class TargetSelectionComponent extends LanguageSelectionComponent {
   }
 
   swapLanguages() {
-    console.log('swapLanguages');
     this.store.dispatch(swapLanguages());
   }
 }

@@ -10,6 +10,7 @@ import {
   chooseTarget,
   setTextToTranslate,
   setTranslatedText,
+  swapLanguages,
   toggleTranslating
 } from './translate.actions';
 
@@ -21,6 +22,7 @@ export class TranslateEffects {
       toggleTranslating,
       chooseSource,
       chooseTarget,
+      swapLanguages,
     ),
     debounceTime(1000),
     withLatestFrom(this.store.select(selectTranslate)),
