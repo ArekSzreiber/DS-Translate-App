@@ -15,9 +15,9 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
     }
   `],
   template: `
-<button class="icon-button">
-  <ng-content></ng-content>
-</button>
+    <button class="icon-button">
+      <ng-content></ng-content>
+    </button>
   `,
 
 })

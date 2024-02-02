@@ -46,12 +46,21 @@ export class TextareaComponent {
   @Input() placeholder?: string;
   @Input() maxLength?: number;
   @Input() readonly: boolean = false;
-  @Input() text: string | null = '';
   @Output() textChanged = new EventEmitter<string>();
-
   current: number = 0;
 
+  private _text: string = '';
+
+  get text(): string {
+    return this._text;
+  }
+
+  @Input() set text(value: string | null) {
+    this._text = value ?? '';
+  }
+
   onTextChanged($event: string) {
+    this._text = $event;
     this.current = $event.length;
     this.textChanged.emit($event);
   }

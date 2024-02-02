@@ -3,6 +3,8 @@ import {FormsModule} from '@angular/forms';
 import {NgModule} from '@angular/core';
 import {NgOptimizedImage} from '@angular/common';
 import {StoreModule} from '@ngrx/store';
+import {HttpClientModule} from '@angular/common/http';
+import {EffectsModule} from '@ngrx/effects';
 
 
 import {AppComponent} from './app.component';
@@ -19,11 +21,10 @@ import {SelectableButtonComponent} from "./translate-app/containers/selectable-b
 import {SourceSelectionComponent} from './translate-app/language-selection/source-selection/source-selection.component';
 import {TargetSelectionComponent} from './translate-app/language-selection/target-selection/target-selection.component';
 import {TextareaComponent} from './translate-app/containers/textarea/textarea.component';
+import {TooltipComponent} from './translate-app/containers/tooltip/tooltip.component';
 import {TranslateAppComponent} from './translate-app/translate-app/translate-app.component';
-import {translateReducer} from './store/translate.reducer';
-import {EffectsModule} from '@ngrx/effects';
 import {TranslateEffects} from './store/translate.effects';
-import {HttpClientModule} from '@angular/common/http';
+import {translateReducer} from './store/translate.reducer';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import {HttpClientModule} from '@angular/common/http';
     SourceSelectionComponent,
     TargetSelectionComponent,
     TextareaComponent,
+    TooltipComponent,
     TranslateAppComponent,
   ],
   imports: [
