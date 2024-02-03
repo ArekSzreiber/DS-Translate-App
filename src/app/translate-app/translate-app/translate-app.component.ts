@@ -5,7 +5,7 @@ import {setTextToTranslate, toggleTranslating} from '../../store/translate.actio
 import {Observable, take} from 'rxjs';
 import {selectSource, selectTarget, selectTextToTranslate, selectTranslatedText} from '../../store/translate.selectors';
 import {TextareaComponent} from '../containers/textarea/textarea.component';
-import {TextToSpeechService} from '../text-to-speech.service';
+import {TextToSpeechService} from './text-to-speech.service';
 
 @Component({
   selector: 'app-translate-app',
