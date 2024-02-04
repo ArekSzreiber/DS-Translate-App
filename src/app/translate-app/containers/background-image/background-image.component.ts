@@ -7,7 +7,7 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
     <div class="container">
       <img
         class="background-image"
-        ngSrc="../../../../assets/hero_img.jpg"
+        ngSrc="assets/hero_img.jpg"
         alt=""
         height="460"
         width="1280"
