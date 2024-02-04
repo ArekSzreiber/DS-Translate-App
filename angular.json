@@ -102,6 +102,9 @@
           "options": {
             "buildTarget": "translate-app:build"
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
