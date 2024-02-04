@@ -20,25 +20,26 @@ import {TextToSpeechService} from './text-to-speech.service';
     }
 
 
-
-
     @media (min-width: 1025px) {
       .card-container {
         flex-direction: row;
         column-gap: 20px;
         margin: 60px;
         justify-content: center;
+        height: 450px;
+        align-items: stretch;
       }
 
       .card-container_card {
         flex-grow: 1;
+        flex-basis: 400px;
+        max-width: 750px;
       }
 
       .card {
-        min-height: 450px;
-
+        height: 100%;
       }
-      
+
     }
 
     .buttons-container {

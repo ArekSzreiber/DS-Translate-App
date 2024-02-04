@@ -20,6 +20,9 @@ import {Language} from "../../translate-app/model";
         color: var(--light);
       }
     }
+    .text {
+      white-space: nowrap;
+    }
 
 
     @media (min-width: 1025px) {

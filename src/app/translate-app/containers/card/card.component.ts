@@ -23,7 +23,7 @@ import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/co
       padding-bottom: 13px;
 
     }
-    
+
     [textarea] {
       flex-grow: 1;
     }
@@ -41,7 +41,7 @@ import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/co
     }
 
     @media (min-width: 1025px) {
-      
+
       .card {
         padding: 30px;
 
@@ -50,11 +50,11 @@ import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/co
       .footer {
         margin-top: 16px;
       }
-      
+
       .footer-buttons {
         column-gap: 10px;
       }
-      
+
     }
 
 
