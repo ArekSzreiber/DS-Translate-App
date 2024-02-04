@@ -16,7 +16,7 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
   `],
   template: `
     <div class="container">
-      <img class="logo" ngSrc="../../../../assets/logo.svg" alt="" height="45" width="137">
+      <img class="logo" ngSrc="assets/logo.svg" alt="" height="45" width="137">
     </div>
   `,
 })

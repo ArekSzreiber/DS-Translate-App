@@ -50,7 +50,7 @@ import {ChangeDetectionStrategy, Component, EventEmitter, Output} from '@angular
       [class.active]="active"
       (click)="toggleClicked()"
     >
-      <img ngSrc="../../../../assets/Sort_alfa.svg" alt="A" width="24" height="24">
+      <img ngSrc="assets/Sort_alfa.svg" alt="A" width="24" height="24">
       <span class="text">Translate</span>
     </button>
   `,

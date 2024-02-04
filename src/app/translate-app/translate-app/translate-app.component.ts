@@ -86,11 +86,11 @@ import {TextToSpeechService} from './text-to-speech.service';
         <footer class="footer">
           <div class="footer-buttons">
             <app-icon-button (click)="speak(translating, source$)">
-              <img class="icon-svg" src="../../../../assets/sound_max_fill.svg" alt="">
+              <img class="icon-svg" src="assets/sound_max_fill.svg" alt="">
             </app-icon-button>
             <app-icon-button class="copy-icon" (click)="copyToClipboard(translating)">
               <app-tooltip class="copy-icon_tooltip" *ngIf="showTooltip">Copied to clipboard</app-tooltip>
-              <img class="icon-svg" src="../../../../assets/Copy.svg" alt="">
+              <img class="icon-svg" src="assets/Copy.svg" alt="">
             </app-icon-button>
           </div>
           <app-button
@@ -114,11 +114,11 @@ import {TextToSpeechService} from './text-to-speech.service';
         <footer class="footer">
           <div class="footer-buttons">
             <app-icon-button (click)="speak(translated, target$)">
-              <img class="icon-svg" src="../../../../assets/sound_max_fill.svg" alt="">
+              <img class="icon-svg" src="assets/sound_max_fill.svg" alt="">
             </app-icon-button>
             <app-icon-button class="copy-icon" (click)="copyToClipboard(translated)">
               <app-tooltip class="copy-icon_tooltip" *ngIf="showTooltip">Copied to clipboard</app-tooltip>
-              <img class="icon-svg" src="../../../../assets/Copy.svg" alt="">
+              <img class="icon-svg" src="assets/Copy.svg" alt="">
             </app-icon-button>
           </div>
         </footer>

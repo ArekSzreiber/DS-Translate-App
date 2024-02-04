@@ -39,7 +39,7 @@ import {TranslateState} from '../../../store/translate.reducer';
     </div>
 
     <app-icon-button (click)="swapLanguages()">
-      <img class="icon-svg" ngSrc="../../../assets/Horizontal_top_left_main.svg" width="24" height="24" alt="">
+      <img class="icon-svg" ngSrc="assets/Horizontal_top_left_main.svg" width="24" height="24" alt="">
     </app-icon-button>
   `,
 })
