@@ -19,6 +19,28 @@ import {TextToSpeechService} from './text-to-speech.service';
       margin: 0 calc(-53px + 12.5vw);
     }
 
+
+
+
+    @media (min-width: 1025px) {
+      .card-container {
+        flex-direction: row;
+        column-gap: 20px;
+        margin: 60px;
+        justify-content: center;
+      }
+
+      .card-container_card {
+        flex-grow: 1;
+      }
+
+      .card {
+        min-height: 450px;
+
+      }
+      
+    }
+
     .buttons-container {
       display: flex;
       column-gap: 7px;
@@ -48,7 +70,7 @@ import {TextToSpeechService} from './text-to-speech.service';
 
     <div class="card-container">
 
-      <app-card>
+      <app-card class="card-container_card">
         <header class="header">
           <app-source-selection></app-source-selection>
         </header>
@@ -64,11 +86,11 @@ import {TextToSpeechService} from './text-to-speech.service';
         <footer class="footer">
           <div class="footer-buttons">
             <app-icon-button (click)="speak(translating, source$)">
-              <img ngSrc="../../../../assets/sound_max_fill.svg" width="24" height="24" alt="">
+              <img class="icon-svg" src="../../../../assets/sound_max_fill.svg" alt="">
             </app-icon-button>
             <app-icon-button class="copy-icon" (click)="copyToClipboard(translating)">
               <app-tooltip class="copy-icon_tooltip" *ngIf="showTooltip">Copied to clipboard</app-tooltip>
-              <img ngSrc="../../../../assets/Copy.svg" width="24" height="24" alt="">
+              <img class="icon-svg" src="../../../../assets/Copy.svg" alt="">
             </app-icon-button>
           </div>
           <app-button
@@ -78,7 +100,7 @@ import {TextToSpeechService} from './text-to-speech.service';
       </app-card>
 
 
-      <app-card>
+      <app-card class="card-container_card">
         <header class="header">
           <app-target-selection></app-target-selection>
         </header>
@@ -92,11 +114,11 @@ import {TextToSpeechService} from './text-to-speech.service';
         <footer class="footer">
           <div class="footer-buttons">
             <app-icon-button (click)="speak(translated, target$)">
-              <img ngSrc="../../../../assets/sound_max_fill.svg" width="24" height="24" alt="">
+              <img class="icon-svg" src="../../../../assets/sound_max_fill.svg" alt="">
             </app-icon-button>
             <app-icon-button class="copy-icon" (click)="copyToClipboard(translated)">
               <app-tooltip class="copy-icon_tooltip" *ngIf="showTooltip">Copied to clipboard</app-tooltip>
-              <img ngSrc="../../../../assets/Copy.svg" width="24" height="24" alt="">
+              <img class="icon-svg" src="../../../../assets/Copy.svg" alt="">
             </app-icon-button>
           </div>
         </footer>

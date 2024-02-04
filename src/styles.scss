@@ -21,3 +21,16 @@ body {
   overflow-x: hidden;
   background-color: var(--background);
 }
+
+
+.icon-svg {
+  height: 18px;
+  width: 18px;
+}
+
+@media (min-width: 1025px) {
+  .icon-svg {
+    height: 28px;
+    width: 28px;
+  }
+}

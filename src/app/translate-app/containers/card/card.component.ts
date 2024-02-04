@@ -9,17 +9,23 @@ import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/co
     @import "../../../../assets/variables";
 
     .card {
-      padding: 20px;
-      border: 1px solid var(--grey);
-      border-radius: 20px;
       backdrop-filter: blur(10px);
+      border-radius: 20px;
+      border: 1px solid var(--grey);
+      display: flex;
+      flex-direction: column;
       min-width: 380px;
+      padding: 20px;
     }
 
     .header {
       border-bottom: 1px solid var(--grey-darker);
       padding-bottom: 13px;
 
+    }
+    
+    [textarea] {
+      flex-grow: 1;
     }
 
     .footer {
@@ -33,6 +39,25 @@ import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/co
       display: flex;
       column-gap: 5px;
     }
+
+    @media (min-width: 1025px) {
+      
+      .card {
+        padding: 30px;
+
+      }
+
+      .footer {
+        margin-top: 16px;
+      }
+      
+      .footer-buttons {
+        column-gap: 10px;
+      }
+      
+    }
+
+
   `],
   template: `
     <div class="card">

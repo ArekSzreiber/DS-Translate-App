@@ -12,6 +12,13 @@ import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
       display: flex;
       justify-content: flex-end;
     }
+
+    @media (min-width: 1025px) {
+      #character-counter {
+        @include text-md;
+      }
+    }
+    
   `],
   template: `
     <div id="character-counter">

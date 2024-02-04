@@ -19,7 +19,7 @@ import {included, Language} from '../../translate-app/model';
       border: 1px solid transparent;
       color: var(--grey);
       cursor: pointer;
-      padding: 8px 15px 8px 10px;
+      padding: 8px 10px 8px 10px;
 
       &:hover {
         background-image: url('/assets/Expand_down-hover.svg');
@@ -31,6 +31,14 @@ import {included, Language} from '../../translate-app/model';
       background-color: var(--grey);
       background-image: url('/assets/Expand_down.svg');
       color: var(--light);
+    }
+
+    @media (min-width: 1025px) {
+      .select {
+        @include text-xl();
+        padding: 10px 12px 10px 12px;
+        border-radius: 16px;
+      }
     }
 
   `],

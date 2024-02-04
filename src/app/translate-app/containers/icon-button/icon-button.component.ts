@@ -7,12 +7,21 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
     @import "../../../../assets/variables";
 
     .icon-button {
-      border-radius: 10px;
+      border-radius: 11px;
       border: 2px solid var(--grey);
       background: transparent;
       cursor: pointer;
-      padding: 2px 3px;
+      padding: 5px 5px 2px 4px;
     }
+
+    @media (min-width: 1025px) {
+      .icon-button {
+        border-radius: 16px;
+        border-width: 3px;
+        padding: 7px 7px 4px 7px;
+      }
+    }
+
   `],
   template: `
     <button class="icon-button">

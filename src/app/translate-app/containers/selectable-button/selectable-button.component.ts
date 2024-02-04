@@ -21,6 +21,15 @@ import {Language} from "../../translate-app/model";
       }
     }
 
+
+    @media (min-width: 1025px) {
+      .button {
+        @include text-xl();
+        padding: 10px 14px 8px 14px;
+        border-radius: 16px;
+      }
+    }
+
     .selected {
       color: var(--light);
       background: var(--grey);

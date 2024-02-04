@@ -35,6 +35,13 @@ import {ChangeDetectionStrategy, Component, EventEmitter, Output} from '@angular
       align-self: center;
     }
 
+    @media (min-width: 1025px) {
+      .button {
+        padding: 16px 30px;
+      }
+    }
+
+
   `],
   template: `
     <button

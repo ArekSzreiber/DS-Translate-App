@@ -5,12 +5,18 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
   styles: [`
     @import "../../../../assets/variables";
 
+    :host {
+      display: flex;
+      flex-direction: column;
+    }
+    
 
     .textarea {
       @include text-md();
       background: none;
       border: none;
       color: var(--light);
+      flex-grow: 1;
       font-family: "DM Sans", sans-serif !important;
       min-height: 140px;
       outline: none;
@@ -23,6 +29,14 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
         opacity: 1;
       }
     }
+    
+    @media (min-width: 1025px) {
+      .textarea {
+        @include text-xl();
+      }
+    }
+
+
   `],
   template: `
     <textarea
