@@ -61,6 +61,9 @@ export const translateReducer = createReducer(
   ),
 
   on(swapLanguages, (state, action) => {
+    if (state.source === 'autodetect') {
+      return state;
+    }
     return {
       ...state,
       source: state.target,
