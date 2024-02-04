@@ -11,7 +11,7 @@ import {included, Language} from '../../translate-app/model';
       @include text-md();
       appearance: none;
       background-color: transparent;
-      background-image: url('/assets/Expand_down.svg');
+      background-image: url('assets/Expand_down.svg');
       background-position-x: 100%;
       background-position-y: 50%;
       background-repeat: no-repeat;
@@ -22,14 +22,14 @@ import {included, Language} from '../../translate-app/model';
       padding: 8px 10px 8px 10px;
 
       &:hover {
-        background-image: url('/assets/Expand_down-hover.svg');
+        background-image: url('assets/Expand_down-hover.svg');
         color: var(--light);
       }
     }
 
     .selected {
       background-color: var(--grey);
-      background-image: url('/assets/Expand_down.svg');
+      background-image: url('assets/Expand_down.svg');
       color: var(--light);
     }
 
