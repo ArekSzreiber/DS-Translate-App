@@ -27,3 +27,7 @@ export const selectTarget  = createSelector(
   selectTranslate,
   (state: TranslateState) => state.target,
 );
+export const selectLanguages  = createSelector(
+  selectTranslate,
+  (state: TranslateState) => state.languages,
+);
