@@ -57,7 +57,6 @@ export const translateReducer = createReducer(
           source: action.languageCode,
         };
       }
-      console.log(state.source, 'state.source');
       let newTarget = state.source;
 
       if (newTarget === 'autodetect') {
