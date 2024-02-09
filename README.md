@@ -2,7 +2,7 @@
 
 [TranslateApp](https://devchallenges.io/challenge/47) assignment from devchallenges.io
 ## Live demo
-[https://arekszreiber.github.io/Translate-app/](https://arekszreiber.github.io/DS-Translate-App/)
+https://arekszreiber.github.io/DS-Translate-App/
 
 ## Deploy
 run
